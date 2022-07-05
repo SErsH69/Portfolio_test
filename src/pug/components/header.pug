@@ -1,0 +1,30 @@
+header.header
+	div.header__in
+		a.header__logo(href=data.header.links.logo)
+			+lazyPicture({
+				src: `${baseDir}images/logo.svg`,
+				alt: 'Логотип',
+			})
+		nav.header__nav
+			ul
+				each object, key in data.header.menu
+					li 
+						a.header__lnk.js-to-anchor(
+							href=object.url
+							data-link=key
+						)
+							!= object.name
+
+	button.header__burger.btn.js-burger(type="button")
+		span
+		span
+		span
+
+	nav.header__menu
+		.header__list
+			each object, key in data.header.menu
+				a.header__link.js-to-anchor(
+					href=object.url
+					data-link=key
+				)
+					!= object.name
